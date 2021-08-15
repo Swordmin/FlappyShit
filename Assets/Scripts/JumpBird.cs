@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody))]
 public class JumpBird : MonoBehaviour
 {
+
     [SerializeField] private float _force;
     [SerializeField] private Rigidbody2D _rigidbody;
 
@@ -20,7 +21,7 @@ public class JumpBird : MonoBehaviour
 
     public void Jump() 
     {
-        _rigidbody.AddForce(Vector2.up * (_force - _rigidbody.velocity.y), ForceMode2D.Impulse);
-        _rigidbody.MoveRotation(_rigidbody.velocity.y * 2f);
+        _rigidbody.AddForce(Vector2.up * (_force - _rigidbody.velocity.y));
     }
+
 }
