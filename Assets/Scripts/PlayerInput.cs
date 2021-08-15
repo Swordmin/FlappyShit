@@ -44,6 +44,11 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyUp(_timeFreezeInput))
             Time.timeScale = 1;
 
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            ResourceViewer.AddCoin(2);
+        }
+
     }
 
     private void Initialization() 
@@ -59,6 +64,14 @@ public class PlayerInput : MonoBehaviour
     public void Jump() 
     {
         _jump.Jump();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.TryGetComponent(out Coin coin)) 
+        {
+            ResourceViewer.AddCoin(coin.GetCount());
+        }
     }
 
 }

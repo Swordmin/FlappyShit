@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
+public class CoinChangeEvent : UnityEvent<int> {}
 public static class ResourceViewer 
 {
 
-    [SerializeField] private static int _coin;
-    [SerializeField] private static int _diamond;
+    private static int _coin;
+    private static int _diamond;
+    public static CoinChangeEvent OnCoinChange = new CoinChangeEvent();
 
     public static void AddCoin(int coin) 
     {
@@ -16,6 +17,8 @@ public static class ResourceViewer
             throw new ArgumentException();
         }
         _coin += coin;
+
+        OnCoinChange?.Invoke(_coin);
     }
     public static void AddDiamond(int diamond)
     {
@@ -33,6 +36,7 @@ public static class ResourceViewer
             throw new ArgumentException();
         }
         _coin -= coin;
+        OnCoinChange?.Invoke(_coin);
     }
     public static void RemoveDiamond(int diamond)
     {

@@ -72,6 +72,8 @@
     <Compile Include="Assets\Scripts\JumpBird.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuTools.cs" />
     <Compile Include="Assets\Scripts\PlayerInput.cs" />
+    <Compile Include="Assets\Scripts\Resource\Coin.cs" />
+    <Compile Include="Assets\Scripts\Resource\ResourceVisualizer.cs" />
     <Compile Include="Assets\Scripts\ShootBird.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
