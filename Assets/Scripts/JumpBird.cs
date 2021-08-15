@@ -19,9 +19,9 @@ public class JumpBird : MonoBehaviour
         _force = force;
     }
 
-    public void Jump() 
+    public void Jump(Vector2 direction) 
     {
-        _rigidbody.AddForce(Vector2.up * (_force - _rigidbody.velocity.y));
+        _rigidbody.AddForce(direction * (_force - _rigidbody.velocity.y));
     }
 
 }
