@@ -9,7 +9,7 @@ public class ShootBird : MonoBehaviour
 
     public void Shoot() 
     {
-        
+        //TODO
     }
 
     public void SetWeapon(Weapon weaponData) 

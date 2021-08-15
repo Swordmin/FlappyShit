@@ -5,8 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(JumpBird))]
 [RequireComponent(typeof(ShootBird))]
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Health))]
 public class PlayerInput : MonoBehaviour
 {
+
+    public static PlayerInput Player;
 
     [SerializeField] private Bird _birdData;
     [SerializeField] private JumpBird _jump;
@@ -22,7 +25,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Awake()
     {
-
+        Player = this;
         _jump = GetComponent<JumpBird>();
         _shoot = GetComponent<ShootBird>();
         _sprite = GetComponent<SpriteRenderer>();
