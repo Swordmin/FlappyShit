@@ -7,7 +7,7 @@ public static class LanguageChange
 
     public static UnityEvent OnChageLanguage = new UnityEvent();
 
-    public static void Change(TextID textId) //Refactoring this bullshit
+    public static void Change(TextID textId)
     {
 
         string language = PlayerPrefs.GetString("Language");

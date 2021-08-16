@@ -272,6 +272,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e5bbec4723251478966ee39f85307d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _soundToggle: {fileID: 0}
+  _vibrationToggle: {fileID: 0}
+  _languageChange: {fileID: 0}
 --- !u!114 &295831481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,7 +397,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6882275, y: 0.17992067}
+  m_Size: {x: 7.21, y: 0.17992067}
   m_EdgeRadius: 0
 --- !u!4 &456281353
 Transform:
