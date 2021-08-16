@@ -16,8 +16,6 @@ public enum InputType
 public class PlayerInput : MonoBehaviour
 {
 
-    public static PlayerInput Player;
-
     [SerializeField] private Joystick _joystick;
     [SerializeField] private Bird _birdData;
     [SerializeField] private JumpBird _jump;
@@ -35,7 +33,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Awake()
     {
-        Player = this;
+
         _jump = GetComponent<JumpBird>();
         _shoot = GetComponent<ShootBird>();
         _sprite = GetComponent<SpriteRenderer>();
@@ -56,13 +54,6 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyUp(_timeFreezeInput))
             Time.timeScale = 1;
         #endregion
-
-        if(_joystick.Vertical > 0)
-        {
-
-
-
-        }
 
     }
 
@@ -98,7 +89,7 @@ public class PlayerInput : MonoBehaviour
                 if (_joystick.Vertical > 0)
                 {
                     yield return new WaitForSeconds(_colldownJump);
-                    Jump(new Vector2(_joystick.Horizontal/2, _joystick.Vertical/2));
+                    Jump(new Vector2(_joystick.Horizontal/5, _joystick.Vertical/2));
                 }
             }
             yield return new WaitForSeconds(_colldownJump);
