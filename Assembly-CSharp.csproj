@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Global\ResourceViewer.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\JumpBird.cs" />
     <Compile Include="Assets\Scripts\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\Resource\Coin.cs" />
     <Compile Include="Assets\Scripts\Resource\ResourceVisualizer.cs" />
