@@ -16,5 +16,5 @@ MonoBehaviour:
   _description: Basic bird
   _jumpForce: 2
   _health: 0
-  _sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  _sprite: {fileID: 21300000, guid: 38a032d64885b4f458a8a94b96509932, type: 3}
   _weapon: {fileID: 11400000, guid: e749a464636b3814bb4e0e4402633c5e, type: 2}
