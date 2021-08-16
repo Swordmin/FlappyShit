@@ -64,9 +64,10 @@ public class MenuTools : MonoBehaviour
     public void SetLanguage(int value)
     {
         PlayerPrefs.SetString("Language", _languageChange.options[value].text);
+        PlayerPrefs.Save();
         PlayerPrefs.SetInt("LanguageId", value);
         PlayerPrefs.Save();
-        Debug.Log(_languageChange.options[value].text);
+        LanguageChange.ChangeLanguage();
     }
 
 }
