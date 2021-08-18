@@ -12,8 +12,8 @@ public class TextID : MonoBehaviour
     private void Awake()
     {
         _text = GetComponent<TextMeshProUGUI>();
-        LanguageChange.Change(this);
-        LanguageChange.OnChageLanguage.AddListener(TextUpdate);
+        LanguageChange.LanguageChanged.Change(this);
+        LanguageChange.LanguageChanged.OnChangeLanguage.AddListener(TextUpdate);
     }
 
     public void SetText(string text)
@@ -24,7 +24,7 @@ public class TextID : MonoBehaviour
     }
     private void TextUpdate()
     {
-        LanguageChange.Change(this);
+        LanguageChange.LanguageChanged.Change(this);
     }
 
 }

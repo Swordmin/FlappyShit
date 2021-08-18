@@ -20,9 +20,18 @@ public class Health : MonoBehaviour
 
     private void OnEnable()
     {
-        Vector2 offset = new Vector2(transform.position.x, transform.position.y + 0.2f);
+        Vector2 offset = new Vector2(transform.position.x, transform.position.y + 1.5f);
         HealthBar healthbar = Instantiate(_healthBar, offset, Quaternion.identity, transform);
         healthbar.SetHealth(this);
+    }
+
+    public void SetHealth(float value) 
+    {
+        if(value < 0 )
+        {
+            throw new ArgumentException();
+        }
+        _health = value;
     }
 
     public void TakeDamage(float damage) 

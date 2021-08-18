@@ -20,6 +20,7 @@ public class PlayerInput : MonoBehaviour
 
     [SerializeField] private Joystick _joystick;
     [SerializeField] private Bird _birdData;
+    [SerializeField] private Health _health;
     [SerializeField] private JumpBird _jump;
     [SerializeField] private ShootBird _shoot;
     [SerializeField] private SpriteRenderer _sprite;
@@ -36,6 +37,7 @@ public class PlayerInput : MonoBehaviour
     private void Awake()
     {
         Player = this;
+        _health = GetComponent<Health>();
         _jump = GetComponent<JumpBird>();
         _shoot = GetComponent<ShootBird>();
         _sprite = GetComponent<SpriteRenderer>();
@@ -72,7 +74,7 @@ public class PlayerInput : MonoBehaviour
         _jump.SetForce(_birdData.GetJumpForce());
         _shoot.SetWeapon(_birdData.GetWeapon());
         _sprite.sprite = _birdData.GetSprite();
-
+        _health.SetHealth(_birdData.GetHealth());
 
     }
 
@@ -85,7 +87,7 @@ public class PlayerInput : MonoBehaviour
     {
         if (collision.TryGetComponent(out Coin coin))
         {
-            ResourceViewer.AddCoin(coin.GetCount());
+            ResourceViewer.ResourceView.Coin += coin.Count;
         }
     }
 

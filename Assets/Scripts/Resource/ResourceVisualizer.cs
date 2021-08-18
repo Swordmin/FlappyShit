@@ -8,7 +8,7 @@ public class ResourceVisualizer : MonoBehaviour
 
     private void Awake()
     {
-        ResourceViewer.OnCoinChange.AddListener((count) => 
+        ResourceViewer.ResourceView.OnCoinChange.AddListener((count) => 
         {
             _coinText.text = count.ToString();
         });

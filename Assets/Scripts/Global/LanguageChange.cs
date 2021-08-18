@@ -2,12 +2,19 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public static class LanguageChange
+public class LanguageChange : MonoBehaviour
 {
 
-    public static UnityEvent OnChageLanguage = new UnityEvent();
+    public UnityEvent OnChangeLanguage = new UnityEvent();
 
-    public static void Change(TextID textId)
+    public static LanguageChange LanguageChanged;
+
+    private void Awake()
+    {
+        LanguageChanged = this;
+    }
+
+    public void Change(TextID textId)
     {
 
         string language = PlayerPrefs.GetString("Language");
@@ -17,30 +24,27 @@ public static class LanguageChange
         XmlElement xRoot = xDoc.DocumentElement;
 
 
-        foreach (XmlNode childnode in xRoot.ChildNodes)
+        foreach (XmlNode childnode in xRoot.ChildNodes) 
         {
 
-            if (childnode.LocalName == language)
+            if (childnode.LocalName != language) continue;
+
+            foreach (XmlNode child in childnode)
             {
 
-                foreach (XmlNode child in childnode)
-                {
+                if (child.LocalName != textId.Id) continue;
 
-                    if (child.LocalName == textId.Id)
-                    {
-                        textId.SetText(child.InnerText);
-                    }
-
-                }
+                textId.SetText(child.InnerText);
 
             }
+
 
         }
 
     }
 
-    public static void ChangeLanguage()
+    public void ChangeLanguage()
     {
-        OnChageLanguage?.Invoke();
+        OnChangeLanguage?.Invoke();
     }
 }

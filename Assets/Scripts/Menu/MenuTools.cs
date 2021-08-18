@@ -67,7 +67,7 @@ public class MenuTools : MonoBehaviour
         PlayerPrefs.Save();
         PlayerPrefs.SetInt("LanguageId", value);
         PlayerPrefs.Save();
-        LanguageChange.ChangeLanguage();
+        LanguageChange.LanguageChanged.ChangeLanguage();
     }
 
 }

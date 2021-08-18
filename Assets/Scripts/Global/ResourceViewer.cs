@@ -1,53 +1,40 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine.Events;
 
 public class CoinChangeEvent : UnityEvent<int> {}
-public static class ResourceViewer 
+public class ResourceViewer : MonoBehaviour
 {
-
-    private static int _coin;
-    private static int _diamond;
-    public static CoinChangeEvent OnCoinChange = new CoinChangeEvent();
-
-    public static void AddCoin(int coin) 
+    private int _coin;
+    public int Coin 
     {
-        if(coin < 0)
+        get { return _coin; }
+        set 
         {
-            throw new ArgumentException();
-        }
-        _coin += coin;
+            _coin = value;
 
-        OnCoinChange?.Invoke(_coin);
-    }
-    public static void AddDiamond(int diamond)
-    {
-        if (diamond < 0)
-        {
-            throw new ArgumentException();
+            OnCoinChange?.Invoke(_coin);
         }
-        _diamond += diamond;
     }
 
-    public static void RemoveCoin(int coin) 
+    private int _diamond;
+    public int Diamond 
     {
-        if (coin < 0)
+        get { return _diamond; }
+        set 
         {
-            throw new ArgumentException();
+            _diamond = value;
         }
-        _coin -= coin;
-        OnCoinChange?.Invoke(_coin);
-    }
-    public static void RemoveDiamond(int diamond)
-    {
-        if (diamond < 0)
-        {
-            throw new ArgumentException();
-        }
-        _diamond -= diamond;
     }
 
-    public static int GetCoin() => _coin;
-    public static int GetDiamond() => _diamond;
+    public CoinChangeEvent OnCoinChange = new CoinChangeEvent();
 
+    public static ResourceViewer ResourceView;
+
+    private void Awake() 
+    {
+        DontDestroyOnLoad(this);
+        ResourceView = this;
+    }
 }
