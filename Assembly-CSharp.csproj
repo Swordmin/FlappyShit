@@ -73,6 +73,7 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
     <Compile Include="Assets\Scripts\Data\Bird.cs" />
     <Compile Include="Assets\Scripts\Data\Weapon.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\Global\LanguageChange.cs" />
     <Compile Include="Assets\Scripts\Global\ResourceViewer.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />

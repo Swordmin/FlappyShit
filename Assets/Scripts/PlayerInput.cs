@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -85,10 +86,14 @@ public class PlayerInput : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Coin coin))
+        try
         {
-            ResourceViewer.ResourceView.Coin += coin.Count;
+            if (collision.TryGetComponent(out Coin coin))
+            {
+                ResourceViewer.ResourceView.Coin += coin.Count;
+            }
         }
+        catch(Exception ex) { Debug.Log(ex); }
     }
 
     IEnumerator JumpTimer()
