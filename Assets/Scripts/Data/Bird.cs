@@ -12,6 +12,8 @@ public class Bird : ScriptableObject
     [SerializeField] private float _health;
     [SerializeField] private Sprite _sprite;
     [SerializeField] private Weapon _weapon;
+    [SerializeField] private AnimationCurve _amplitudeCurve;
+    [SerializeField] private AnimationCurve _amplitudeSpeed;
 
     public string GetName() => _name;
     public string GetDescription() => _description;
@@ -19,5 +21,8 @@ public class Bird : ScriptableObject
     public float GetHealth() => _health;
     public Sprite GetSprite() => _sprite;
     public Weapon GetWeapon() => _weapon;
+
+    public AnimationCurve GetAmplitudeCurve() => _amplitudeCurve;
+    public AnimationCurve GetSpeedCurve() => _amplitudeSpeed;
 
 }

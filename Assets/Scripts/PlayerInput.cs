@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public enum InputType
@@ -59,6 +61,9 @@ public class PlayerInput : MonoBehaviour
             Time.timeScale = 1;
         #endregion
 
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
         if (_joystick.Vertical > 0)
         {
 
@@ -85,10 +90,14 @@ public class PlayerInput : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Coin coin))
+        try
         {
-            ResourceViewer.ResourceView.Coin += coin.Count;
+            if (collision.TryGetComponent(out Coin coin))
+            {
+                ResourceViewer.ResourceView.Coin += coin.Count;
+            }
         }
+        catch(Exception ex) { Debug.Log(ex); }
     }
 
     IEnumerator JumpTimer()
