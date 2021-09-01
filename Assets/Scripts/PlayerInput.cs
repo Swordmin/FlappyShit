@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public enum InputType
@@ -59,6 +60,9 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyUp(_timeFreezeInput))
             Time.timeScale = 1;
         #endregion
+
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         if (_joystick.Vertical > 0)
         {

@@ -12,8 +12,9 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private Health _health;
     [SerializeField] private ShootBird _shoot;
     [SerializeField] private SpriteRenderer _sprite;
-    [SerializeField] private AnimationCurve _moveCurve;
-    private float _currentTimeMove, _totalTime;
+    [SerializeField] private float _amplitude, _speed;
+    [SerializeField] private AnimationCurve _offsetSpeed;
+    [SerializeField] private AnimationCurve _offsetAmplitude;
 
     private void Awake()
     {
@@ -21,7 +22,9 @@ public class EnemyAI : MonoBehaviour
         _shoot = GetComponent<ShootBird>();
         _sprite = GetComponent<SpriteRenderer>();
         Initialization();
-        _totalTime = _moveCurve.keys[_moveCurve.keys.Length - 1].time;
+        _amplitude = CurveRandomAmplitude(_offsetAmplitude);
+        _speed = CurveRandomSpeed(_offsetSpeed);
+        Move();
     }
 
     private void Update()
@@ -35,20 +38,26 @@ public class EnemyAI : MonoBehaviour
         _shoot.SetWeapon(_birdData.GetWeapon());
         _sprite.sprite = _birdData.GetSprite();
         _health.SetHealth(_birdData.GetHealth());
-        _moveCurve = _birdData.GetMoveCurve();
+        _offsetSpeed = _birdData.GetSpeedCurve();
+        _offsetAmplitude = _birdData.GetAmplitudeCurve();
 
     }
 
     private void Move() 
     {
         var position = transform.position;
-        position.y =  _moveCurve.Evaluate(_currentTimeMove);
+        position.y = transform.position.y + Mathf.Cos(Time.time * _speed) * _amplitude/100;
         transform.position = position;
-        _currentTimeMove += Time.deltaTime;
-
-        if (_currentTimeMove > _totalTime)
-            _currentTimeMove = 0;
 
     }
+
+    private float CurveRandomAmplitude(AnimationCurve _curve)
+    {
+        return _curve.Evaluate(Random.value);
+    }    
+    private float CurveRandomSpeed(AnimationCurve _curve)
+    {
+        return _curve.Evaluate(Random.value);
+    } 
 
 }

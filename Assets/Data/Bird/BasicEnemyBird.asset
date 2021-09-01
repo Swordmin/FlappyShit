@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da33992d2cdc251438cdde80ac90034a, type: 3}
   m_Name: BasicEnemyBird
   m_EditorClassIdentifier: 
-  _name: 
+  _name: Red
   _description: 
   _jumpForce: 0
-  _health: 0
-  _sprite: {fileID: 0}
-  _weapon: {fileID: 0}
+  _health: 10
+  _sprite: {fileID: 21300000, guid: 05af8a6d425950941b6a8b32f6422e77, type: 3}
+  _weapon: {fileID: 11400000, guid: e749a464636b3814bb4e0e4402633c5e, type: 2}
   _moveCurve:
     serializedVersion: 2
     m_Curve:
@@ -32,13 +32,13 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
+      value: 2.003019
+      inSlope: 0.006510304
+      outSlope: 0.006510304
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.4080094
     - serializedVersion: 3
       time: 1.9989064
       value: -0.004429579
